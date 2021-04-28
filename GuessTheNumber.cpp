@@ -7,11 +7,14 @@ int main()
 {
     int countA = 1;
     srand(time(0)); //seed random number generator
-    int num = rand() % 100 + 1; // random number between 1 and 100
+    int upperLimit, downLimit;
+    cout << "Insert limits for the numbers";
+    cin >> upperLimit >> downLimit;
+    int r = rand() % (upperLimit - downLimit) + downLimit; // random number without restriction
     cout << "Guess My Number Game\n\n";
 
     int guess = 0;
-    while (guess != num) {
+    while (guess != r) {
         cout << "Enter a guess between 1 and 100 : ";
         cin >> guess;
 
@@ -19,11 +22,11 @@ int main()
             break;
         }
 
-        if (guess > num) {
+        if (guess > r) {
             cout << "Too high!\n\n";
             countA ++;
         }
-        else if (guess < num)
+        else if (guess < r)
             {
                 cout << "Too low!\n\n";
                 countA ++;
