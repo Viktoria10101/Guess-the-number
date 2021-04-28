@@ -7,10 +7,19 @@ int main()
 {
     int countA = 1;
     srand(time(0)); //seed random number generator
-    int upperLimit, downLimit;
-    cout << "Insert limits for the numbers";
-    cin >> upperLimit >> downLimit;
-    int r = rand() % (upperLimit - downLimit) + downLimit; // random number without restriction
+    int upperLimit;
+    int downLimit;
+    cout << "Enter a positive min limit ";
+    cin >> downLimit;
+    cout << "Enter a positive max limit";
+    cin >> downLimit;
+    while ( upperLimit <= 0 || downLimit<= 0 || upperLimit < downLimit) {
+        cout << "Invalid data\n";
+        cout << "Enter a positive min limit ";
+        cin >> downLimit;
+        cout << "Enter a positive max limit";
+        cin >> downLimit;
+    int r = rand () % (upperLimit - downLimit) + 1;
     cout << "Guess My Number Game\n\n";
 
     int guess = 0;
